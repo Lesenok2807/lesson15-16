@@ -6,7 +6,7 @@ class First {
      }
 
      hello() {
-          console.log('Привет я метод родителя!');
+          console.log(`${this.text}`);
      }
 }
 
@@ -14,10 +14,15 @@ class Second extends First {
      constructor(text, skills = []) {
           super(text)
           this.skills = skills;
-          console.log(text);
+          // console.log('А я наследуемый метод!');
+     }
+     sayHello() {
+          super.hello();
+          console.log('А я наследуемый метод!')
      }
 }
 
-const third = new Second('А я наследуемый метод!');
+const third = new Second('Привет я метод родителя!');
 
-third.hello();
+
+third.sayHello();
